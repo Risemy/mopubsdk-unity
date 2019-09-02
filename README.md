@@ -5,16 +5,15 @@ android 4.1 或更高版本
 Android Studio 3.4
 
 ## 集成
- 
+
+unity开发工具安装Google的unity-jar-resolver插件，拉取库,插件地址：https://github.com/googlesamples/unity-jar-resolver
+
+
+拉取需要如下配置 
 ``` 
 <dependencies>
   <androidPackages>
-      <androidPackage spec="com.google.android.gms:play-services-games:9.8.0">
-      <androidSdkPackageIds>
-        <androidSdkPackageId>extra-google-m2repository</androidSdkPackageId>
-      </androidSdkPackageIds>
-    </androidPackage>
-
+     
 	 <androidPackage spec="com.wnl:mopub_ad_sdk_unity:1.0.5">
 	  <repositories>
 	 <repository>https://s3.amazonaws.com/moat-sdk-builds</repository>
