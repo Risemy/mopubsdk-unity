@@ -48,7 +48,7 @@ android 4.1 或更高版本
 * 回调
 
 ```java
-  public interface BannerAdListener {
+ {
     void onBannerLoaded();  //加载成功
 
     void onBannerFailed(String errorMsg);  //加载失败
