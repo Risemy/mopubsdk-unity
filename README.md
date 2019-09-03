@@ -28,6 +28,13 @@ unity开发工具安装Google的unity-jar-resolver插件，拉取库,插件地�
 </dependencies>
  ```
  
+ 在项目里面 AndroidManifest 的 Application 里面配置 facebook_app_id 是facebook开发者后台申请的 app_id
+
+```java
+   <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+```
+
+下载对应包名的google-services.json文件放入资源文件夹里
 
 ## 广告使用案例
 
