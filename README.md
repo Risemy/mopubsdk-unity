@@ -44,6 +44,7 @@ unity开发工具安装Google的unity-jar-resolver插件，拉取库,插件地�
 * 方法名  initUnityAdSdk（Activity context, String jsonAds, String facebookId,String app_flyers_id, String umengId）
 * 参数依次为 activity，广告ID的json字符串,facebookId统计ID，appflyer ID，友盟统计ID
 
+***是否配置国内激励视频广告***
 
 * 包名  com.youloft.mopubsdkunity.core
 * 类名  UnityAdManager
