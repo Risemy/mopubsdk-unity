@@ -8,21 +8,117 @@ Android Studio 3.4
 
 unity开发工具安装Google的unity-jar-resolver插件，拉取库,插件地址：https://github.com/googlesamples/unity-jar-resolver
 
+找SDK开发者要无unity jar的aar，还有穿山甲广告相关的aar文件
 
 拉取需要如下配置 
 ``` 
 <dependencies>
-  <androidPackages>
-     
-	 <androidPackage spec="com.wnl:mopub_ad_sdk_unity:1.0.5">
+	<androidPackages>
+
+	<androidPackage spec = "com.applovin:applovin-sdk:9.8.0">
+	 
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub:mopub-sdk:5.7.1@aar">
 	  <repositories>
 	 <repository>https://s3.amazonaws.com/moat-sdk-builds</repository>
-     <repository>https://maven.google.com</repository>
+	</repositories>
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub:mopub-sdk-base:5.7.1@aar">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub:mopub-sdk-banner:5.7.1@aar">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub:mopub-sdk-interstitial:5.7.1@aar">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub:mopub-sdk-rewardedvideo:5.7.1@aar">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub:mopub-sdk-native-static:5.7.1@aar">
+	 
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub:mopub-sdk-native-video:5.7.1@aar">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub.mediation:applovin:9.8.0.0">
+	 
+	</androidPackage>
+	
+	<androidPackage spec = "com.facebook.android:audience-network-sdk:5.4.1">
+
+	</androidPackage>
+
+	<androidPackage spec = "com.mopub.mediation:facebookaudiencenetwork:5.4.1.1">
+	 
+	</androidPackage>
+	
+	<androidPackage spec = "com.google.android.gms:play-services-ads:18.1.1">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub.mediation:admob:17.2.1.0">
+	
+	</androidPackage>
+
+	<androidPackage spec = "com.ironsource.sdk:mediationsdk:6.9.1@jar">
+	<repositories>
 	 <repository>https://dl.bintray.com/ironsource-mobile/android-sdk</repository>
-	 <repository>https://raw.githubusercontent.com/Risemy/mopubsdk-unity/master</repository>
+	</repositories>
+	</androidPackage>
+	
+	<androidPackage spec = "com.mopub.mediation:ironsource:6.9.1.0">
+	 
+	</androidPackage>
+	
+	<androidPackage spec = "com.facebook.android:facebook-android-sdk:5.4.0">
+	 
+	</androidPackage>
+	
+	<androidPackage spec = "com.google.firebase:firebase-core:17.1.0">
+
+	</androidPackage>
+	
+	<androidPackage spec = "com.google.firebase:firebase-config:19.0.0">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.appsflyer:af-android-sdk:4.9.0">
+	 
+	</androidPackage>
+	
+	<androidPackage spec = "com.android.installreferrer:installreferrer:1.0">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.google.android.gms:play-services-ads-identifier:17.0.0">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.google.android.gms:play-services-base:17.1.0">
+	
+	</androidPackage>
+	
+	<androidPackage spec = "com.umeng.umsdk:game:8.0.0+G">
+	<repositories>
 	 <repository>https://dl.bintray.com/umsdk/release</repository>
-	 </repositories>
-    </androidPackage>
+	</repositories>
+	</androidPackage>
+	
+	<androidPackage spec = "com.umeng.umsdk:common:2.0.0">
+	<repositories>
+	 <repository>https://dl.bintray.com/umsdk/release</repository>
+	</repositories>
+	</androidPackage>
+
 
   </androidPackages>
 </dependencies>
@@ -32,6 +128,16 @@ unity开发工具安装Google的unity-jar-resolver插件，拉取库,插件地�
 
 ```java
    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+ 
+```
+
+ 在项目里面 AndroidManifest 的 Application 里面配置 applovin_key 是AppLovin后台申请的 key
+
+```java
+   <meta-data
+            android:name="applovin.sdk.key"
+            android:value="your_key" />
+  
 ```
 
 下载对应包名的google-services.json文件放入资源文件夹里
@@ -39,17 +145,29 @@ unity开发工具安装Google的unity-jar-resolver插件，拉取库,插件地�
 ## 广告使用案例
 
 ###  一、初始化SDK
+***设置穿山甲APPID***
 * 包名  com.youloft.mopubsdkunity.core
 * 类名  UnityAdManager
-* 方法名  initUnityAdSdk（Activity context, String jsonAds, String facebookId,String app_flyers_id, String umengId）
-* 参数依次为 activity，广告ID的json字符串,facebookId统计ID，appflyer ID，友盟统计ID
+* 方法名  setTTAppId（String appId）
+* 参数  穿山甲AppId
+
+***设置穿山甲激励视频广告ID***
+* 包名  com.youloft.mopubsdkunity.core
+* 类名  UnityAdManager
+* 方法名  setTTAdId（String adId）
+* 参数  穿山甲激励视频广告ID
 
 ***是否配置国内激励视频广告***
-
 * 包名  com.youloft.mopubsdkunity.core
 * 类名  UnityAdManager
 * 方法名  isUseTTAd（boolean useTTAd）
 * 参数  是否使用国内穿山甲的激励视频广告（默认使用）
+
+***初始化方法***
+* 包名  com.youloft.mopubsdkunity.core
+* 类名  UnityAdManager
+* 方法名  initUnityAdSdk（Activity context, String jsonAds, String facebookId,String app_flyers_id, String umengId）
+* 参数依次为 activity，广告ID的json字符串,facebookId统计ID，appflyer ID，友盟统计ID
 
 ### 二、加载广告
 
