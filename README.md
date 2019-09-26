@@ -6,139 +6,23 @@ Android Studio 3.4
 
 ## 集成
 
-unity开发工具安装Google的unity-jar-resolver插件，拉取库,插件地址：https://github.com/googlesamples/unity-jar-resolver
+* 下载下面的文件，将文件夹内的aar和jar文件放入unity相对应的Android资源文件夹内
 
-找SDK开发者要无unity jar的aar，还有穿山甲广告相关的aar文件
-
-拉取需要如下配置 
-``` 
-<dependencies>
-	<androidPackages>
-
-	<androidPackage spec = "com.applovin:applovin-sdk:9.8.0">
-	 
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub:mopub-sdk:5.7.1@aar">
-	  <repositories>
-	 <repository>https://s3.amazonaws.com/moat-sdk-builds</repository>
-	</repositories>
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub:mopub-sdk-base:5.7.1@aar">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub:mopub-sdk-banner:5.7.1@aar">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub:mopub-sdk-interstitial:5.7.1@aar">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub:mopub-sdk-rewardedvideo:5.7.1@aar">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub:mopub-sdk-native-static:5.7.1@aar">
-	 
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub:mopub-sdk-native-video:5.7.1@aar">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub.mediation:applovin:9.8.0.0">
-	 
-	</androidPackage>
-	
-	<androidPackage spec = "com.facebook.android:audience-network-sdk:5.4.1">
-
-	</androidPackage>
-
-	<androidPackage spec = "com.mopub.mediation:facebookaudiencenetwork:5.4.1.1">
-	 
-	</androidPackage>
-	
-	<androidPackage spec = "com.google.android.gms:play-services-ads:18.1.1">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub.mediation:admob:17.2.1.0">
-	
-	</androidPackage>
-
-	<androidPackage spec = "com.ironsource.sdk:mediationsdk:6.9.1@jar">
-	<repositories>
-	 <repository>https://dl.bintray.com/ironsource-mobile/android-sdk</repository>
-	</repositories>
-	</androidPackage>
-	
-	<androidPackage spec = "com.mopub.mediation:ironsource:6.9.1.0">
-	 
-	</androidPackage>
-	
-	<androidPackage spec = "com.facebook.android:facebook-android-sdk:5.4.0">
-	 
-	</androidPackage>
-	
-	<androidPackage spec = "com.google.firebase:firebase-core:17.1.0">
-
-	</androidPackage>
-	
-	<androidPackage spec = "com.google.firebase:firebase-config:19.0.0">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.appsflyer:af-android-sdk:4.9.0">
-	 
-	</androidPackage>
-	
-	<androidPackage spec = "com.android.installreferrer:installreferrer:1.0">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.google.android.gms:play-services-ads-identifier:17.0.0">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.google.android.gms:play-services-base:17.1.0">
-	
-	</androidPackage>
-	
-	<androidPackage spec = "com.umeng.umsdk:game:8.0.0+G">
-	<repositories>
-	 <repository>https://dl.bintray.com/umsdk/release</repository>
-	</repositories>
-	</androidPackage>
-	
-	<androidPackage spec = "com.umeng.umsdk:common:2.0.0">
-	<repositories>
-	 <repository>https://dl.bintray.com/umsdk/release</repository>
-	</repositories>
-	</androidPackage>
+	[aar下载地址](https://github.com/Risemy/mopubsdk-unity/releases/download/1.2.2/aar.rar) 
 
 
-  </androidPackages>
-</dependencies>
- ```
- 
- 在项目里面 AndroidManifest 的 Application 里面配置 facebook_app_id 是facebook开发者后台申请的 app_id
 
-```java
-   <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
- 
+ * 在项目里面 AndroidManifest 的 Application 里面配置AppLovin后台申请的key FaceBook后台申请的ApplicationId  Google广告的APPLICATION_ID
+
+```
+<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="your key"/>
+<meta-data android:name="applovin.sdk.key" android:value="your_key" />
+<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="yourkey" />
+
 ```
 
- 在项目里面 AndroidManifest 的 Application 里面配置 applovin_key 是AppLovin后台申请的 key
+* 在Google Firebase后台下载对应包名的google-services.json文件放入资源文件夹里
 
-```java
-   <meta-data
-            android:name="applovin.sdk.key"
-            android:value="your_key" />
-  
-```
 
 下载对应包名的google-services.json文件放入资源文件夹里
 
