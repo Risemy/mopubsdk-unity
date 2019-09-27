@@ -21,7 +21,10 @@ Android Studio 3.4
 
 ```
 
-```buildscript {
+*在 build.gradle添加如下配置
+
+```
+buildscript {
     dependencies {
         classpath 'com.google.gms:google-services:4.3.2'
 	}
