@@ -21,6 +21,15 @@ Android Studio 3.4
 
 ```
 
+```buildscript {
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.2'
+	}
+}
+```
+
+* 在build.gradle文件夹最底部添加 apply plugin: 'com.google.gms.google-services'
+
 * 在Google Firebase后台下载对应包名的google-services.json文件放入资源文件夹里
 
 
